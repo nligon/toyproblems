@@ -4,7 +4,8 @@
 
 // Note: The function accepts an integer and returns an integer
 
-function squareDigits(num){
+// naive implementation
+function squareDigits(num) {
   //may the code be with you
   // convert the num to a string
   var inputString = num.toString();
@@ -12,9 +13,17 @@ function squareDigits(num){
   var results = '';
   // loop over the input string
   for (var i = 0; i < inputString.length; i++) {
-  // for each integer, square it and push to results
+    // for each integer, square it and push to results
     results = results.concat(Math.pow(inputString[i], 2));
   };
   // convert results to integer, return
   return parseInt(results);
 }
+
+// Single-line implementation ES6 / Array.prototype.reduce implementation
+var squareDigits = num =>
+  Number(('' + num).split('').reduce((total, val) => total + val * val, '')
+);
+
+// tests:
+console.log(squareDigits(1234) === 14916); // should log 'true'
