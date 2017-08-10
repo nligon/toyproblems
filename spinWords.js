@@ -10,4 +10,8 @@ spinWords( "This is another test" )=> returns "This is rehtona test"
 */
 
 function spinWords(){
+    
 }
+
+// tests
+spinWords("Hey fellow warriors") // "Hey wollef sroirraw"
