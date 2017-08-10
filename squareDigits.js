@@ -13,8 +13,8 @@ function squareDigits(num){
   // loop over the input string
   for (var i = 0; i < inputString.length; i++) {
   // for each integer, square it and push to results
-  results = results.concat(Math.pow(inputString[i], 2));
+    results = results.concat(Math.pow(inputString[i], 2));
   };
   // convert results to integer, return
   return parseInt(results);
-};
+}
