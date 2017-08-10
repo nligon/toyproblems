@@ -27,7 +27,7 @@ function squareDigits(num) {
 
 // Single-line implementation ES6 / Array.prototype.reduce implementation
 const squareDigits = num =>
-  Number(('' + num).split('').reduce((total, val) => total + val * val, ''));
+  ~~('' + num).split('').reduce((total, val) => total + val * val, '');
 
 // tests:
 console.log((squareDigits(1234) === 14916) ? 'pass' : 'fail');
