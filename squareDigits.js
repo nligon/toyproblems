@@ -7,8 +7,14 @@
 function squareDigits(num){
   //may the code be with you
   // convert the num to a string
+  var inputString = num.toString();
   // create a results string
+  var results = '';
   // loop over the input string
+  for (var i = 0; i < inputString.length; i++) {
   // for each integer, square it and push to results
+  results = results.concat(Math.pow(inputString[i], 2));
+  };
   // convert results to integer, return
+  return parseInt(results);
 };
