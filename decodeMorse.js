@@ -22,8 +22,22 @@ Good luck!
 const MORSE_CODE = { '-.-.--': '!', '.-..-.': '"', '...-..-': '$', '.-...': '&', '.----.': '\'', '-.--.': '(', '-.--.-': ')', '.-.-.': '+', '--..--': ',', '-....-': '-', '.-.-.-': '.', '-..-.': '/', '-----': '0', '.----': '1', '..---': '2', '...--': '3', '....-': '4', '.....': '5', '-....': '6', '--...': '7', '---..': '8', '----.': '9', '---...': ':', '-.-.-.': ';', '-...-': '=', '..--..': '?', '.--.-.': '@', '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J', '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T', '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y', '--..': 'Z', '..--.-': '_', '...---...': 'SOS' };
 
 // naive ES6 implementation using Array.prototype.map()
-const decodeMorse = morseCode =>
-  morseCode.split(' ').map(val => MORSE_CODE[val] || ' ').join('').replace('  ', ' ');
+const decodeMorse1 = morseCode => {
+  let results = '';
+  let morseStr = morseCode.split(' ').map(val => MORSE_CODE[val] || ' ')
+  morseStr.forEach((val, i) => {
+    (morseStr[i] !== ' ' || morseStr[i - 1] === ' ') && (results += val);
+  });
+  return results;
+};
+
+// naive ES6 implementation using Array.prototype.map()
+const decodeMorse = morseCode => {
+  // let results = '';
+  return morseCode.split(' ').map(val => {
+    return MORSE_CODE[val] || ' '
+  }).reduce((tot, val, i, arr) => arr[i] !== ' ' || arr[i - 1] === ' ' ? tot += val : tot += '', '');
+};
 
 // tests
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .')); // 'HEY JUDE'
