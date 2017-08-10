@@ -6,4 +6,9 @@
 
 function squareDigits(num){
   //may the code be with you
-}
+  // convert the num to a string
+  // create a results string
+  // loop over the input string
+  // for each integer, square it and push to results
+  // convert results to integer, return
+};
