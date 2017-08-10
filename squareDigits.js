@@ -4,7 +4,10 @@
 
 // Note: The function accepts an integer and returns an integer
 
-// naive implementation
+// naive implementation:
+
+/*
+
 function squareDigits(num) {
   //may the code be with you
   // convert the num to a string
@@ -20,10 +23,11 @@ function squareDigits(num) {
   return parseInt(results);
 }
 
+*/
+
 // Single-line implementation ES6 / Array.prototype.reduce implementation
-var squareDigits = num =>
-  Number(('' + num).split('').reduce((total, val) => total + val * val, '')
-);
+const squareDigits = num =>
+  Number(('' + num).split('').reduce((total, val) => total + val * val, ''));
 
 // tests:
-console.log(squareDigits(1234) === 14916); // should log 'true'
+console.log((squareDigits(1234) === 14916) ? 'pass' : 'fail');
